@@ -29,6 +29,6 @@ SignaSight Glove is a wearable device for translating sign language gestures int
 ## Usage
 1. Mount flex sensors on glove fingers.
 2. Connect components according to `circuit_diagram.png`.
-3. Upload `main.ino` to ESP32 via Arduino IDE.
+3. Upload `SignaSight_Glove.ino` to ESP32 via Arduino IDE.
 4. Use push button to switch modes (gesture / obstacle detection).
 5. Connect via Bluetooth Serial to read gesture labels and obstacle alerts.
