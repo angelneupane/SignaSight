@@ -6,29 +6,35 @@ SignaSight Glove is a wearable device for translating sign language gestures int
 - Sign language recognition using flex sensors + IMU
 - Obstacle detection via ultrasonic sensor
 - Vibration motor feedback for obstacle alerts
-- Bluetooth Serial output for gesture text and obstacle alerts
-- Simple, low-cost components accessible in Nepal or internationally
+
+## Why we're making this project
+We're making this project to showcase something that can actually be useful for people who can't communicate easily and visually impaired problems. We want to showcase this project in our school's exhibition.
+
+## How it works
+-Button can toggle between Sign language and Obstacle Detection mode.
+1. Obstacle detection mode: The ultrasonic sensor motor detects obstacle and the vibration motor vibrates with intensity corresponding to the distance from the obstacle.
+2. Sign language mode: The data from 5 flex sensors (each finger) and the accelerometer are sent to the ML model and it provides audio of the sign language gesture that will be heard through the speaker.
+
 
 ## Hardware Components
 - ESP32 Dev Board (Bluetooth)
-- Flex sensors (5 × 2.2″)
+- Flex sensors (5 × 2.2″) (We will be using DIY sensors)
 - MPU6050 IMU
 - Ultrasonic HC-SR04
 - Vibration motor
 - Push button
-- Li-ion battery
 - Glove + mounting materials
 - Jumper wires
+- Resistors, transistor and other components
 
-## Software
-- Arduino IDE firmware (`main.ino`)
-- Edge Impulse ML model placeholder (`model.cpp` + `model.h`)
-- Bluetooth Serial communication
-- Sensor reading and obstacle detection logic
-
-## Usage
-1. Mount flex sensors on glove fingers.
-2. Connect components according to `circuit_diagram.png`.
-3. Upload `SignaSight_Glove.ino` to ESP32 via Arduino IDE.
-4. Use push button to switch modes (gesture / obstacle detection).
-5. Connect via Bluetooth Serial to read gesture labels and obstacle alerts.
+## Bill of materials
+Note: I attacted links to amazon and put the prices in USD as there are no online stores for me to get the prices from here in nepal and I'll have to buy them from physical stores.
+| Product name                       | Product description                                            | Product link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Product unit price (USD) | Product amount | Product running total (USD) |
+|------------------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|----------------|-----------------------------|
+| ESP32 Dev Board                    | ESP32  Bluetooth dev board compatible with Arduino             | https://www.amazon.com/ESP-WROOM-32-Development-Microcontroller-Integrated-Compatible/dp/B08D5ZD528                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 8.99                     | 1              | 8.99                        |
+| MPU6050 6DoF IMU Sensor Module     | MPU6050 accelerometer + gyro module for Arduino/ESP32          | https://www.amazon.com/GY-521-MPU-6050-Acceleration-Gyroscope-Schematic/dp/B096LKDHB1/ref=sr_1_3?dib=eyJ2IjoiMSJ9.3LE-6VmzALri1i1CcWyHphUHqgIvMheA5hRU1JtRJrbGjHj071QN20LucGBJIEps.-dVxrYaPSWnQYVLGK9qpz_wp-14wTFlz7zi8WIU5G_s&dib_tag=se&keywords=mpu6050+imu+sensor&qid=1767715914&sr=8-3                                                                                                                                                                                                                                                                                         | 7.59                     | 1              | 16.58                       |
+| HC-SR04 Ultrasonic Distance Sensor | HC-SR04 ultrasonic module for distance/obstacle detection      | https://www.amazon.com/Ultrasonic-Measuring-Transducer-ultrasonic-transducer/dp/B0F21FYMF1/ref=sr_1_1?dib=eyJ2IjoiMSJ9.BtA8K8OjBarVYIW523coy9Vczyk7zdN-Fk1mgk05lglBtkk0-l1g51JiLcKwYw4jF3H6hIJR7VrIlxY2iXJa8zJbU2uUG_oTLwHdNQaOdYvOc_Wqm3logl-N98XLZnGMB0PQ4ZDo7cd7baNQCTSgXGuothP864ZJXRSWp733U1cq6_WRPmTCpbR3Ts4wQ1Jf07OepV9A-p2swsBCBcZPerFhwjVUg4BCRDRiVEM4RlE.Z9hDI7BEw2keirzVN3GHgBlUdMkrstPzYue_wNlwaOQ&dib_tag=se&keywords=hc+sr04+ultrasonic+sensor&qid=1767719148&sr=8-1                                                                                                  | 6.99                     | 1              | 23.57                       |
+| 10kOhm Resistor Pack (assorted)    | Pack of 10kOhm resistors for flex sensors and voltage dividers | https://www.amazon.com/Resistor-Tolerance-Resistors-Limiting-Certificated/dp/B08QRJBW9D/ref=sr_1_3?dib=eyJ2IjoiMSJ9.sKryXnIkpAlwhj5fSmCdrHvBgH3UuqKmrQ7bbInL7M97xBInp_m4YzG37ejAZe9uZMMhy4Jd5F_Xf5ZxBeHHoQFxHklPE6Wq5oyuGksXZMKUJeZQitMiTnCjK1mByjhQKegp7AlPETK2fxKGoAabwxpr4g5vJuTecL6yUez6fOoGO6ExAHEws6WEY7AklsWrN9FOjCDGLCZ9fCNbRX9di-8QfX3YmCteA4EnQZBUQxk.ZpSY8f034lkp15oaf79tbRXJhpReRTEB3UmjDxTQ7r8&dib_tag=se&keywords=10k%2Bresistor%2Bpack&qid=1767719224&sr=8-3&th=1                                                                                                    | 5.99                     | 1              | 29.56                       |
+| 220ohm Resistors (assorted)        | Pack of 20ohm resistors for transistor base                    | https://www.amazon.com/Resistor-Tolerance-Resistors-Limiting-Certificated/dp/B08QR1STQC/ref=sr_1_1?crid=1XGMT459BLOD0&dib=eyJ2IjoiMSJ9.9MuC6yweietQHKaC7WRZjZD4Kg4z6Na32fsK6S0EAcdRl1cmAQieKqyNa-mu1iF5EdzBFB9FXGuM7EhGd5mylbADHV_bdoELj0-fW0aVJ5WbfyKYftH04qWt4Hc8zvMqeyMs_2vTODACYO12WIlTZHIdQvBr8pCdCEwY4p3loAB1igdit3iC1X0oFE33nshB6bmFyv6MhQrpPL4xn3eToHUkwwYkH0dvJFzXXoncPpc.jUJ0LXYCH8QqWnl85bY6WmwTXvb1BxXTcszG8EWNZZo&dib_tag=se&keywords=220%2Bohm%2Bresistor&qid=1767719331&refinements=p_36%3A-700&rnid=2661611011&sprefix=220%2Bohm%2Bresistor%2Caps%2C407&sr=8-1&th=1 | 5.99                     | 1              | 35.55                       |
+| Vibration Motor 3.3V               | Mini vibration motor for haptic feedback                       | https://www.amazon.com/Vibration-Button-Type-Vibrating-Household-Appliances/dp/B0BVJR8LTN/ref=sr_1_2?crid=W9ILWJ4D04LF&dib=eyJ2IjoiMSJ9.CzK-xy3-9k_px7gp_QYCe3ROfmqDCSRRhSmXPI3iN8E.O453ExKnZEKXLGpSA-mAd3J5wyQIffCvQITrc-2mUek&dib_tag=se&keywords=3.3v+vibration+motor&qid=1767719575&sprefix=3.3v+vibration+motor%2Caps%2C507&sr=8-2                                                                                                                                                                                                                                             | 4.99                     | 1              | 40.54                       |
+| Jumper Wires Kit                   | male female jumper wires                                       | https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.1JTtZYzqh1JVSNxn_zOlNKR-NWs8wozhUHSlzQX8IqfJD8-RiofLr_KLWFglj-j-qCLGS49Q183GyWE-akKCHyEC_KoQ-DhclbFBYCP5fXeqFMH4VUJXhODKEumnHmtJFM6MuIS2JN0bFGOnRXS1AelksOzdEZx-tzXr-V8S9P38Mv4l0DameNyN7kfl9Ya7ClMENtmChwwcq5qEynSpJi4vz3YIHFNsVZaIJT3081E.aRRO0Ru_AlrY5hsTelg3z7TNbZ-dGly00VbyQeNbj4U&dib_tag=se&keywords=jumper+wire+kit&qid=1767878871&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1                                                                 | 6.98                     | 1              | 47.52                       |
