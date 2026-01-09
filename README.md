@@ -15,6 +15,15 @@ We're making this project to showcase something that can actually be useful for 
 1. Obstacle detection mode: The ultrasonic sensor motor detects obstacle and the vibration motor vibrates with intensity corresponding to the distance from the obstacle.
 2. Sign language mode: The data from 5 flex sensors (each finger) and the accelerometer are sent to the ML model and it provides audio of the sign language gesture that will be heard through the speaker.
 
+## 3D Model of project
+
+<img width="538" height="704" alt="image" src="https://github.com/user-attachments/assets/512845ff-48b0-47d5-949b-9bf4a5446ca8" />
+<img width="303" height="714" alt="image" src="https://github.com/user-attachments/assets/028a15fb-c43c-4e37-9f26-613e28d2ebd4" />
+<img width="506" height="699" alt="image" src="https://github.com/user-attachments/assets/df936a5f-4759-41e6-904f-632ea443ec45" />
+
+## Circuit Diagram
+
+<img width="742" height="726" alt="image" src="https://github.com/user-attachments/assets/99ff2f19-604b-47bc-8ab0-36a789b445be" />
 
 ## Hardware Components
 - ESP32 Dev Board (Bluetooth)
@@ -26,6 +35,7 @@ We're making this project to showcase something that can actually be useful for 
 - Glove + mounting materials
 - Jumper wires
 - Resistors, transistor and other components
+- Speaker, Amplifier
 
 ## Bill of materials
 Note: I attacted links to amazon and put the prices in USD as there are no online stores for me to get the prices from here in nepal and I'll have to buy them from physical stores.
