@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "name": "ESP32",
+      "includePath": [
+        "${workspaceFolder}/firmware/lib/Adafruit_MPU6050",
+        "${workspaceFolder}/firmware/lib/Adafruit_Sensor",
+        "${workspaceFolder}/firmware/lib/Adafruit_BusIO",
+        "${workspaceFolder}/firmware/lib/**"
+      ],
+      "defines": [
+        "ESP32"
+      ],
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "c11",
+      "cppStandard": "c++11",
+      "intelliSenseMode": "gcc-x64"
+    }
+  ],
+  "version": 4
+}
